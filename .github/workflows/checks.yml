@@ -15,3 +15,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_SECRET }}
+      - name: Checkout
+        uses: actions/checkout@v2
