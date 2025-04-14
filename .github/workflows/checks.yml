@@ -17,12 +17,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_SECRET }}
       - name: Checkout # action to check out the code in the repository.
         uses: actions/checkout@v2
-      - name: Set up Docker Compose
-        uses: docker/setup-docker-compose@v2
-      - name: Save environment variables
-        uses: actions/save-env@v1
-      - name: Restore environment variables
-        uses: actions/load-env@v1
       - name: Setup Docker Compose
         uses: docker/setup-docker-compose@v2.1.1
       - name: Test # This step runs the python manage.py test command using docker-compose to test the application.
