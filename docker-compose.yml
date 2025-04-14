@@ -1,0 +1,17 @@
+# Specify the Compose file format version
+services:
+  app: # Define your service name
+    build:
+      context: .
+      args:
+        DEV: "true"
+    ports:
+      - "8000:8000" # Map container port to host port
+    volumes:
+      # anything we just created inside the container, it mapped to project directory
+      # anything we just created inside the project directory, it mapped to container
+      - ./app:/app # Mount the current directory to /app in the container
+    command: > # command to be used to run the service
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DEBUG=True # Set environment variables
