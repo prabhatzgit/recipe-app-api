@@ -17,6 +17,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_SECRET }}
       - name: Checkout # action to check out the code in the repository.
         uses: actions/checkout@v2
+      - name: Set up Docker Compose
+        uses: docker/setup-docker-compose@v2
       - name: Test # This step runs the python manage.py test command using docker-compose to test the application.
         run: docker-compose run --rm app sh -c "python manage.py test"
       - name: Lint #  This step runs the flake8 command using docker-compose to lint the code for style and syntax errors.
